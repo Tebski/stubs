@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 '''
 Script to process .txt files from glovia, and convert to PDF
 
@@ -30,7 +28,6 @@ Vendor must appear in the page of the text file.
 
 
 import os
->>>>>>> Stashed changes
 from fpdf import FPDF
 import os
 
@@ -92,17 +89,6 @@ for f in files:
                     print("no vendor found in " + f)
                 else:
                     vendor = page[venindex+5:venindex+11].strip()
-<<<<<<< Updated upstream
-                    print("Processing vendor: " + vendor)
-                    page = page[page.find('\n')+1:] #suppress first line
-                    pdf = FPDF(format="letter")
-                    pdf.add_page()
-                    pdf.set_font("Courier",'',8)
-                    pdf.multi_cell(0,5,page,0,"L")
-                    pdf.output(os.path.join(dir_attach,vendor +'.pdf'),"F")
-        os.rename(os.path.join(dir_to_scan,f),os.path.join(dir_archive,f))
-        #if (f.endswith(".txt")):
-=======
                     if not vendor:
                         print("Invalid vendor found in " + f)
                     else:
@@ -116,4 +102,3 @@ for f in files:
         os.rename(os.path.join(DIR_TO_SCAN, f), os.path.join(DIR_ARCHIVE, f))
     else:
         print("Invalid file name " + f + " found in " + DIR_TO_SCAN)
->>>>>>> Stashed changes
